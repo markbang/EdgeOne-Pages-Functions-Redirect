@@ -11,6 +11,12 @@
     "statusCode": 302
   },
   {
+    "domain": "s.mfawa.top",
+    "path": "/esa",
+    "destination": "https://tianchi.aliyun.com/specials/promotion/freetier/esa?taskCode=25254&recordId=2b5278e78467d5973ba6c4f061bed7a0",
+    "statusCode": 302
+  },
+  {
     "domain": "www.mfawa.top",
     "destination": "https://mfawa.top",
     "statusCode": 302
