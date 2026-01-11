@@ -6,7 +6,7 @@
   },
   {
     "domain": "blog.bangwu.top",
-    "destination": "https://bangwu.top",
+    "destination": "https://bangwu.top/moments/",
     "statusCode": 301
   }
 ]
