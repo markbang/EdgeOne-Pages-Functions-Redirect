@@ -1,12 +1,37 @@
 [
   {
     "default": true, 
-    "destination": "https://bangwu.top",
+    "destination": "https://bangwu.me",
     "statusCode": 302
   },
   {
     "domain": "blog.bangwu.top",
-    "destination": "https://bangwu.top/moments/",
+    "destination": "https://bangwu.me/moments/",
+    "statusCode": 301
+  },
+  {
+    "domain": "talks.bangwu.top",
+    "destination": "https://talks.bangwu.me",
+    "statusCode": 301
+  },
+  {
+    "domain": "bangwu.top",
+    "destination": "https://bangwu.me",
+    "statusCode": 301
+  },
+  {
+    "domain": "www.bangwu.top",
+    "destination": "https://bangwu.me",
+    "statusCode": 301
+  },
+  {
+    "domain": "base.bangwu.top",
+    "destination": "https://base.bangwu.me",
+    "statusCode": 301
+  },
+  {
+    "domain": "now.bangwu.top",
+    "destination": "https://now.bangwu.me",
     "statusCode": 301
   }
 ]
