@@ -1,5 +1,21 @@
 import redirectRules from './redirect-rules.json';
 
+function appendPath(destination, pathSuffix) {
+  if (!pathSuffix || pathSuffix === '/') {
+    return destination;
+  }
+
+  if (destination.endsWith('/') && pathSuffix.startsWith('/')) {
+    return destination + pathSuffix.slice(1);
+  }
+
+  if (!destination.endsWith('/') && !pathSuffix.startsWith('/')) {
+    return `${destination}/${pathSuffix}`;
+  }
+
+  return destination + pathSuffix;
+}
+
 export function onRequest(context) {
   const { request } = context;
   const url = new URL(request.url);
@@ -26,7 +42,7 @@ export function onRequest(context) {
       break;
     }
 
-    if (path === '/' && rule.domain === host && !rule.path) {
+    if (rule.domain === host && !rule.path) {
       rootDomainMatchedRule = rule;
     }
   }
@@ -38,7 +54,7 @@ export function onRequest(context) {
     if (specificPathMatchedRule.path && path.startsWith(specificPathMatchedRule.path)) {
       const remainingPath = path.substring(specificPathMatchedRule.path.length);
       if (remainingPath) {
-        destination += remainingPath;
+        destination = appendPath(destination, remainingPath);
       }
     }
 
@@ -52,10 +68,7 @@ export function onRequest(context) {
   if (rootDomainMatchedRule) {
     let destination = rootDomainMatchedRule.destination;
 
-    // 完全匹配到域名时，如果还有路径，就带上路径一起重定向
-    if (path !== '/') {
-      destination += path;
-    }
+    destination = appendPath(destination, path);
 
     if (url.search) {
       destination += url.search;
@@ -70,4 +83,3 @@ export function onRequest(context) {
 
   return new Response('Not Found', { status: 404 });
 }
-
