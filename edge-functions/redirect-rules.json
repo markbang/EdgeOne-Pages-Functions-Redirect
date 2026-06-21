@@ -33,5 +33,15 @@
     "domain": "now.bangwu.top",
     "destination": "https://now.bangwu.me",
     "statusCode": 301
+  },
+  {
+    "domain": "cdn.bangwu.top",
+    "destination": "https://cdn.bangwu.me",
+    "statusCode": 301
+  },
+  {
+    "domain": "static.bangwu.top",
+    "destination": "https://static.bangwu.me",
+    "statusCode": 301
   }
 ]
